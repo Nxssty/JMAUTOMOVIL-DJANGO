@@ -1,0 +1,105 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<!--/breadcrumb-->
+<div class="service-breadcrumb w3-agile">
+    <div class="container">
+        <div class="wthree_service_breadcrumb_left">
+            <ul>
+                <li><a href="{% url 'home' %}">CONTINUAR VIENDO VEHÍCULOS</a> <i></i></li>
+            </ul>
+        </div>
+        <div class="wthree_service_breadcrumb_right">
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--//breadcrumb-->
+<div class="single w3ls">
+    <div class="container">
+        <div class="col-md-8 single-left">
+            <div class="sample1">
+                <div class="carousel" style="height: 341px;">
+                    <ul>
+                        {% for imagen in auto.imagenes.all %}
+                        <li class="{% if forloop.first %}current{% endif %}">
+                            <img src="{{ imagen.imagen.url }}">
+                            <div class="caption1"></div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="controls">
+                        <div class="prev"></div>
+                        <div class="next"></div>
+                    </div>
+                </div>
+                <div class="thumbnails">
+                    <ul>
+                        {% for imagen in auto.imagenes.all %}
+                        <li class="{% if forloop.first %}selected{% endif %}">
+                            <div><img src="{{ imagen.imagen.url }}" alt=" "></div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="single-left2">
+                <h3>{{ auto.marca }} {{ auto.modelo }} - {{ auto.cilindrada }}</h3>
+                <ul class="com">
+                    <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">Año {{ auto.anio }}</a></li>
+                    <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">{{ auto.transmision }}</a></li>
+                    <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">{{ auto.kilometraje }} km</a></li>
+                    <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">{{ auto.combustible }}</a></li>
+                </ul>
+                <div class="single-left2-sub">
+                    <ul>
+                        <li>DESCRIPCIÓN: </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="single-left3">
+                <p>{{ auto.marca }} {{ auto.modelo }} {{ auto.cilindrada }} <span>{{ auto.descripcion }}</span></p>
+            </div>
+            <div class="single-left4">
+                <h4>Síguenos en Redes Sociales</h4>
+                <ul class="social-icons social-icons1">
+                    <li><a href="https://www.facebook.com/profile.php?id=100081051406166" class="icon icon-border icon-border1 facebook"></a></li>
+                    <li><a href="https://www.instagram.com/jmautomotrizz/" class="icon icon-border icon-border1 instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 single-right">
+            <div class="blo-top">
+                <div class="tech-btm">
+                    <h4>Más información del vehículo</h4>
+                    <div class="name">
+                        <form action="tel:+56936648489" class="read hvr-shutter-in-horizontal">
+                            <input type="submit" value="LLAMAR">
+                        </form>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 single-right">
+            <div class="blo-top">
+                <div class="tech-btm">
+                    <h4>Realizamos transferencias de vehículos</h4>
+                    <div class="name">
+                        <form action="https://wa.me/936648489" class="read hvr-shutter-in-horizontal">
+                            <input type="submit" value="WhatsApp">
+                        </form>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blo-top1">
+                <div class="agileits_twitter_posts tech-btm">
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+{% endblock %}

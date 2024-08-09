@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="autos" class="container mt-5">
+    <div class="row">
+        {% for auto in page_obj %}
+        <div class="col-md-4 mb-4">
+			<div class="card shadow-sm border-card" style="width: 100%; position: relative;">
+                {% if auto.vendido %}
+                <div class="badge badge-danger" style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 10%; display: flex; align-items: center; justify-content: center; font-size: 1rem; border-radius: 0;">Vendido <i class="fas fa-check-circle" style="margin-left: 5px;"></i></div>
+                {% elif auto.recien_llegado %}
+                <div class="badge badge-warning" style="position: absolute; top: 5px; left: 5px; z-index: 1; padding: 10px;">Recién llegado</div>
+                {% endif %}
+                {% if auto.imagenes.count > 0 %}
+                <img src="{{ auto.imagenes.first.imagen.url }}" class="card-img-top auto-image" alt="{{ auto.marca }} {{ auto.modelo }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase" style="color: #f4bb3b;">{{ auto.marca }} {{ auto.modelo }} - {{ auto.cilindrada }}</h5>
+                    <p class="card-text"><strong>Año:</strong> {{ auto.anio }}</p>
+                    <p class="card-text"><strong>Precio:</strong> ${{ auto.precio }}</p>
+                    <p class="card-text"><strong>Transmisión:</strong> {{ auto.transmision }}</p>
+                    <a href="{% url 'descripcion' auto.id %}" class="btn btn-warning btn-block">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Paginación -->
+	<div class="row justify-content-center">
+		<div class="">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					{% if page_obj.has_previous %}
+					<li class="page-item disabled">
+						<a class="page-link" href="?page=1" aria-label="First">
+							<span aria-hidden="true">&laquo;&laquo;</span>
+						</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						</a>
+					</li>
+					{% endif %}
+					{% for num in page_obj.paginator.page_range %}
+					{% if page_obj.number == num %}
+					<li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+					{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+					<li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+					{% endif %}
+					{% endfor %}
+					{% if page_obj.has_next %}
+					<li class="page-item">
+						<a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+							<span aria-hidden="true">&raquo;&raquo;</span>
+						</a>
+					</li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</div>
+{% endblock %}

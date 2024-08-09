@@ -1,0 +1,1 @@
+web: gunicorn automovil.wsgi --log-file -
