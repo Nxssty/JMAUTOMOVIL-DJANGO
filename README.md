@@ -1,10 +1,10 @@
-# 🚗 JMAutomovil - Sistema de Venta de Automóviles
+# 🚗 JMAutomovil - Sistema de Venta de Automóviles / Car Sales System
+
+## 🇪🇸 Español
 
 Este repositorio contiene el código fuente de **JMAutomovil**, un sistema de **venta de automóviles** desarrollado con **Django**. La plataforma permite gestionar vehículos de manera eficiente, permitiendo **agregar, modificar y eliminar automóviles** a través de una interfaz protegida con autenticación.
 
----
-
-## 🛠 Tecnologías Utilizadas
+### 🛠 Tecnologías Utilizadas
 
 - 🐍 **Django 5.0.7** → Framework web principal
 - 🗄️ **Base de datos SQLite** → Almacenamiento y gestión de información
@@ -12,54 +12,80 @@ Este repositorio contiene el código fuente de **JMAutomovil**, un sistema de **
 - 💾 **CSS y JavaScript estáticos** → Personalización de la interfaz
 - 🔐 **Sistema de Login** → Acceso a la interfaz de administración de vehículos
 
----
-
-## 🎯 Objetivo del Proyecto
+### 🎯 Objetivo del Proyecto
 
 El objetivo de **JMAutomovil** es permitir la **gestión sencilla de vehículos** en una plataforma web. Los automóviles registrados en la base de datos se **añaden automáticamente** a la web para su visualización, ofreciendo una experiencia fluida y automatizada.
 
----
+### 🗃️ Estructura de la Base de Datos
 
-## 🗃️ Estructura de la Base de Datos
+**Django ORM** fue utilizado para modelar la base de datos, definiendo las siguientes entidades:
 
-Se utilizó **Django ORM** para modelar la base de datos, definiendo las siguientes entidades:
-
-- **Vehículo**: Representa un automóvil en el sistema con los siguientes campos:
+- **Vehículo**:
   - `marca`: Marca del vehículo
   - `modelo`: Modelo del automóvil
   - `año`: Año del modelo
   - `cilindrada`: Capacidad del motor
-  - `tipo_combustible`: Tipo de combustible utilizado (gasolina, diésel, eléctrico, etc.)
+  - `tipo_combustible`: Tipo de combustible (gasolina, diésel, eléctrico, etc.)
   - `transmisión`: Tipo de transmisión (manual o automática)
-  
-- **Usuario**: Gestión de usuarios con autenticación para acceder a la administración del sistema:
+
+- **Usuario**:
   - `nombre_usuario`: Nombre de usuario único
-  - `email`: Correo electrónico del usuario
-  - `contraseña`: Almacenada de forma segura con hash
-  - `es_admin`: Indica si el usuario tiene permisos de administrador
+  - `email`: Correo electrónico
+  - `contraseña`: Almacenada de forma segura
+  - `es_admin`: Indica si el usuario tiene privilegios de administrador
 
-Cada vehículo ingresado en el sistema se guarda en la base de datos y se muestra automáticamente en la web. Solo los usuarios con privilegios de admin pueden **agregar, modificar o eliminar vehículos**.
+Solo los usuarios autenticados pueden **agregar, modificar o eliminar vehículos**.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## ✨ Características Principales
+## En English
 
-- ✅ **Gestión completa de vehículos** (marca, modelo, año, cilindrada, tipo de combustible, transmisión)
-- ✅ **Interfaz protegida con Login** para administración
-- ✅ **Sistema de usuarios con autenticación y permisos**
-- ✅ **Añadir, modificar y eliminar vehículos** fácilmente
-- ✅ **Carga automática de nuevos vehículos en la web**
-- ✅ **Diseño responsivo y atractivo con Bootstrap**
-- ✅ **Modelado de base de datos con Django ORM**, con creación y gestión de tablas automáticamente
+This repository contains the source code for **JMAutomovil**, a **car sales system** developed with **Django**. The platform allows efficient vehicle management, enabling **adding, modifying, and deleting cars** through an authentication-protected interface.
 
----
+### 🛠 Technologies Used
 
-## 📌 Estado del Proyecto
+- 🐍 **Django 5.0.7** → Main web framework
+- 🗄️ **SQLite Database** → Data storage and management
+- 🎨 **Bootstrap** → Responsive and modern design
+- 💾 **Static CSS and JavaScript** → UI customization
+- 🔐 **Login System** → Access control for vehicle management
+
+### 🎯 Project Objective
+
+The goal of **JMAutomovil** is to facilitate **simple vehicle management** on a web platform. Vehicles registered in the database are **automatically added** to the website for display, ensuring a seamless and automated experience.
+
+### 🗃️ Database Structure
+
+**Django ORM** was used to model the database, defining the following entities:
+
+- **Vehicle**:
+  - `brand`: Vehicle brand
+  - `model`: Car model
+  - `year`: Model year
+  - `engine_capacity`: Engine capacity
+  - `fuel_type`: Type of fuel used (gasoline, diesel, electric, etc.)
+  - `transmission`: Transmission type (manual or automatic)
+
+- **User**:
+  - `username`: Unique username
+  - `email`: User's email address
+  - `password`: Securely stored with hashing
+  - `is_admin`: Indicates whether the user has admin privileges
+
+Only authenticated users can **add, modify, or delete vehicles**.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 📌 Estado del Proyecto / Project Status
 
 ✅ **Proyecto Completado** y listo para su uso. Futuras mejoras pueden implementarse para optimizar la experiencia del usuario.
 
----
+✅ **Project Completed** and ready for use. Future improvements may be implemented to optimize the user experience.
 
-## 📄 Licencia
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 📄 Licencia / License
 
 Este proyecto está en constante mejora. ¡Si deseas contribuir o sugerir cambios, eres bienvenido! 🚀
+
+This project is constantly evolving. If you wish to contribute or suggest changes, you are welcome! 🚀
